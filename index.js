@@ -2,7 +2,7 @@
 var express = require('express');
 // requires our server to use the express function
 var server = express();
-// creates a variable for the router 
+// creates a variable for the router
 var albumRouter = require('./server/routers/album.router.js');
 // connects mongoose to mongoose npm package
 var mongoose = require('mongoose');
