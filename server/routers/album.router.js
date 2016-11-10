@@ -10,7 +10,18 @@ router.use(bodyParser.urlencoded({extended: true}));
 
 // performing CRUD functions from the router
  // - use plural 'albums' as it is assumed this will be a collection as there is implicitly more than one album
-router.get('/albums', function(req, res){});
+router.get('/albums', function(req, res){
+  Album.find({}, function(err, foundAlbums){
+    if(err){
+      res.status(500).json({
+        err: err
+      });
+    }
+    res.status(200).json({
+      albums: foundAlbums
+    });
+  });
+});
 router.get('/albums/:id', function(req, res){});
 router.post('/albums', function(req, res){
   console.log(req.body);
