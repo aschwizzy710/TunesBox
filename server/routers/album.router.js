@@ -22,7 +22,18 @@ router.get('/albums', function(req, res){
     });
   });
 });
-router.get('/albums/:id', function(req, res){});
+router.get('/albums/:id', function(req, res){
+  Album.find({_id: req.params.id}, function(err, foundAlbum){
+    if(err){
+      res.status(500).json({
+        err: err
+      });
+    }
+    res.status(200).json({
+      album: foundAlbum
+    });
+  });
+});
 router.post('/albums', function(req, res){
   console.log(req.body);
   var album = new Album(req.body);
