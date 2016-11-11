@@ -72,5 +72,17 @@ router.delete('/albums/:id', function(req, res){
     });
   });
 });
+router.get('/albums/artist/:artist', function(req, res){
+  Album.find({ artist: req.params.artist }, function(err, foundAlbums){
+    if(err){
+      res.status(500).json({
+        err: err
+      });
+    }
+    res.status(200).json({
+      albums: foundAlbums
+    });
+  });
+});
 
 module.exports = router;

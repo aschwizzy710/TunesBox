@@ -16,6 +16,10 @@ var albumSchema = new Schema({
   releaseDate: {
     type: Date,
     required: false
+  },
+  rating: {
+    value: Boolean,
+    required: false
   }
 });
 // forms the actual cookie cutter which is our model, or 'Album' in this case
