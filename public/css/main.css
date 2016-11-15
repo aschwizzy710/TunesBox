@@ -1,4 +1,12 @@
 ul {
-  float: right;
-  row-count: 1;
+  display: inline-flex;
+}
+
+
+#title {
+  color: blue;
+}
+
+#album-list {
+  display: inline;
 }

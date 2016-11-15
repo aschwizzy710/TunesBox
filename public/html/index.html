@@ -3,35 +3,46 @@
 <head>
   <title>Tune It Up</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
   <div ng-controller="MainController">
-    <div class="row">
-      <div class="col-md-8 text-center">
-      <input type="text" ng-model="newAlbum.title" placeholder="Title">
-      <input type="text" ng-model="newAlbum.artist" placeholder="Artist">
-      <input type="text" ng-model="newAlbum.releaseDate" placeholder="Release Date">
-      <input type="text" ng-model="newAlbum.recommendment" placeholder="Recommendment">
-      <button ng-click="createAlbum(newAlbum)">Add Album</button>
-      <ul style="list-style-type: none;">
-        <li ng-repeat="album in albums track by $index" style="list-style-type: none;">
-          <input type="text" ng-show="album.isBeingEdited" ng-model="album.title">
-          <span ng-hide="album.isBeingEdited">{{ album.title }}</span>
-          <br>
-          <input type="text" ng-show="album.isBeingEdited" ng-model="album.artist">
-          <span ng-hide="album.isBeingEdited">{{ album.artist }}</span>
-          <br>
-          <input type="text" ng-show="album.isBeingEdited" ng-model="album.releaseDate">
-          <span ng-hide="album.isBeingEdited">{{ album.releaseDate }}</span>
-          <br>
-          <input type="text" ng-show="album.isBeingEdited" ng-model="album.recommendment">
-          <span ng-hide="album.isBeingEdited">{{ album.recommendment }}</span>
-          <br>
-          <button ng-click="deleteAlbum($index, album)">&times;</button>
-          <button ng-click="editAlbum(album)" ng-hide="album.isBeingEdited">Edit Album Details</button>
-          <button ng-click="saveAlbum($index, album)" ng-show="album.isBeingEdited">Save</button>
-        </li>
-      </ul>
+      <div class="row" id="title">
+        <div class="col-md-12 text-center">
+          <h1>
+            TUNE UP
+          </h1>
+        </div>
+      </div>
+      <div class="row">
+          <div class="col-md-8 text-center">
+          <input type="text" ng-model="newAlbum.title" placeholder="Title">
+          <input type="text" ng-model="newAlbum.artist" placeholder="Artist">
+          <input type="text" ng-model="newAlbum.releaseDate" placeholder="Release Date">
+          <input type="text" ng-model="newAlbum.recommendment" placeholder="Recommendment">
+          <button ng-click="createAlbum(newAlbum)">Add Album</button>
+        </div>
+        <div class="row text-center">
+          <ul style="list-style-type: none;">
+            <li ng-repeat="album in albums track by $index" style="list-style-type: none;" class="">
+              <input type="text" ng-show="album.isBeingEdited" ng-model="album.title">
+              <span ng-hide="album.isBeingEdited">{{ album.title }}</span>
+              <br>
+              <input type="text" ng-show="album.isBeingEdited" ng-model="album.artist">
+              <span ng-hide="album.isBeingEdited">{{ album.artist }}</span>
+              <br>
+              <input type="text" ng-show="album.isBeingEdited" ng-model="album.releaseDate">
+              <span ng-hide="album.isBeingEdited">{{ album.releaseDate }}</span>
+              <br>
+              <input type="text" ng-show="album.isBeingEdited" ng-model="album.recommendment">
+              <span ng-hide="album.isBeingEdited">{{ album.recommendment }}</span>
+              <br>
+              <button ng-click="deleteAlbum($index, album)">&times;</button>
+              <button ng-click="editAlbum(album)" ng-hide="album.isBeingEdited">Edit Album Details</button>
+              <button ng-click="saveAlbum($index, album)" ng-show="album.isBeingEdited">Save</button>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
