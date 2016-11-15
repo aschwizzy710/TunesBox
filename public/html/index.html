@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Tune It Up</title>
+</head>
+<body>
+  <div ng-controller="MainController">
+    <input type="text" ng-model="newAlbum.title">
+    <input type="text" ng-model="newAlbum.artist">
+    <input type="text" ng-model="newAlbum.releaseDate">
+    <input type="text" ng-model="newAlbum.recommendment">
+    <button ng-click="createAlbum(newAlbum)">Add Album</button>
+    <ul>
+      <li ng-repeat="album in albums track by $index">
+        <input type="text" ng-show="album.isBeingEdited" ng-model="album.title">
+        <span ng-hide="album.isBeingEdited">{{ album.title }}</span>
+        <button ng-click="deleteAlbum($index, album)">&times;</button>
+        <button ng-click="editAlbum(album)" ng-hide="album.isBeingEdited">Edit Album Title</button>
+        <button ng-click="saveAlbum($index, album)" ng-show="album.isBeingEdited">Save</button>
+      </li>
+    </ul>
+  </div>
+</body>
+</html>

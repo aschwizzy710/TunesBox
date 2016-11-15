@@ -17,7 +17,7 @@ var albumSchema = new Schema({
     type: Date,
     required: false
   },
-  rating: {
+  recommendment: {
     value: Boolean,
     required: false
   }
