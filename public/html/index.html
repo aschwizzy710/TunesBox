@@ -28,9 +28,13 @@
 
           <button ng-click="createAlbum(newAlbum)">Add Album</button>
         </div>
+        <!-- <select ng-model="singleSelect" ng-options="(album.title for album in albums.data track by $index" style="color:black" >
+
+      </select><br> -->
         <div class="row text-center plump-row">
           <ul style="list-style-type: none;">
-            <li ng-repeat="album in albums track by $index" style="list-style-type: none; color: green;" class="">
+            <li style="list-style-type: none; color: green;" ng-repeat="album in albums track by $index" class="">
+              <!-- ng-show="singleSelect.album === album.title" ng-repeat="album in albums track by $index" -->
               <input type="text" ng-show="album.isBeingEdited" ng-model="album.title">
               <span ng-hide="album.isBeingEdited">{{ album.title }}</span>
               <br>
