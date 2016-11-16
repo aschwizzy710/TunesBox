@@ -26,9 +26,33 @@
     function getAllAlbums(){
       return albums;
     }
-    function createOneAlbum(album){}
-    function updateOneAlbum(index, updatedAlbum){}
-    function deleteOneAlbum(index, deletedAlbum){}
+    function createOneAlbum(album){
+      $http.post('/albums', album)
+          .then(function(response){
+            albums.push(album);
+          })
+          .catch(function(err){
+            console.log(err);
+          });
+    }
+    function updateOneAlbum(index, updatedAlbum){
+      $http.put('/albums/' + updatedAlbum._id, updatedAlbum)
+          .then(function(response){
+            albums.splice(index, 1, updatedAlbum);
+          })
+          .catch(function(err){
+            console.log(err);
+          });
+    }
+    function deleteOneAlbum(index, deletedAlbum){
+      $http.delete('/albums/' + deletedAlbum._id)
+          .then(function(){
+            albums.splice(index, 1);
+          })
+          .catch(function(){
+            console.log(err);
+          });
+    }
 
   }
 }());

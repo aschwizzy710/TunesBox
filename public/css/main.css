@@ -4,9 +4,30 @@ ul {
 
 
 #title {
-  color: blue;
+  color: green;
 }
 
 #album-list {
   display: inline;
+}
+
+.fat-row {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.plump-row {
+  margin-top: 70px;
+  margin-bottom: 70px;
+}
+
+
+body {
+  background-color: #BCED91;
+  background-image: "https://www.emojibase.com/resources/img/emojis/apple/x1f4af.png.pagespeed.ic.XGag47MW_q.png";
+}
+
+#album-cover {
+  width: 150px;
+  height: 150px;
 }

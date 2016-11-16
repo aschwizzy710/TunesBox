@@ -20,6 +20,10 @@ var albumSchema = new Schema({
   recommendment: {
     value: Boolean,
     required: false
+  },
+  albumCover: {
+    value: String,
+    required: false
   }
 });
 // forms the actual cookie cutter which is our model, or 'Album' in this case
