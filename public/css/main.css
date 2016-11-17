@@ -36,3 +36,57 @@ body {
   background-color: #366801;
   padding: -100px;
 }
+
+@import "compass/css3";
+
+html,body {margin:0; padding:10px; -webkit-backface-visibility:hidden;}
+.white-popup {
+  position: relative;
+  background: #FFF;
+  padding: 20px;
+  width:auto;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+
+@keyframes hinge {
+	0% { transform: rotate(0); transform-origin: top left; animation-timing-function: ease-in-out; }
+	20%, 60% { transform: rotate(80deg); transform-origin: top left; animation-timing-function: ease-in-out; }
+	40% { transform: rotate(60deg); transform-origin: top left; animation-timing-function: ease-in-out; }
+	80% { transform: rotate(60deg) translateY(0); opacity: 1; transform-origin: top left; animation-timing-function: ease-in-out; }
+	100% { transform: translateY(700px); opacity: 0; }
+}
+
+.hinge {
+  animation-duration: 1s;
+	animation-name: hinge;
+}
+
+
+
+
+.mfp-with-fade {
+  // before-open state
+  .mfp-content,
+  &.mfp-bg {
+    opacity: 0;
+    transition: opacity .5s ease-out;
+  }
+  // open state
+  &.mfp-ready {
+    .mfp-content {
+     opacity: 1;
+    }
+    &.mfp-bg {
+      opacity: 0.8; // background opacity
+    }
+  }
+
+  // closed state
+  &.mfp-removing {
+    &.mfp-bg {
+      opacity: 0;
+    }
+  }
+}

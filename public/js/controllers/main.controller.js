@@ -30,6 +30,10 @@ function MainController($scope, AlbumService){
     AlbumService.update(index, album);
     album.isBeingEdited = false;
   }
+  $scope.changeVote = function(vote, flag) {
+    $scope.vote = vote == flag ? 'None' : flag;
+    alert($scope.vote);
+  };
 
 }
 
