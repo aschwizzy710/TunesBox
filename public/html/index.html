@@ -44,10 +44,12 @@
               <input type="text" ng-show="album.isBeingEdited" ng-model="album.releaseDate">
               <span ng-hide="album.isBeingEdited">{{ album.releaseDate }}</span>
               <br>
-              <input type="text" ng-show="album.isBeingEdited" ng-model="album.recommendment">
-              <span ng-hide="album.isBeingEdited">{{ album.recommendment }}</span>
-              <br>
-              <img id="album-cover" alt="album-cover" ng-src="{{album.albumCover}}">
+              <!-- <input type="text" ng-show="album.isBeingEdited" ng-model="album.recommendment"> -->
+              <p ng-show="album.recommendment">Certfied Dank <img src="https://media.giphy.com/media/TeBpzQZRaBIC4/giphy.gif" alt="Certified Dank" height="50" width="50"></p>
+              <p ng-show="!album.recommendment">Regs <img src="http://i30.photobucket.com/albums/c313/davdave/schwag.jpg" alt="Regs" height="50" width="50"></p>
+              <!-- <span ng-hide="album.isBeingEdited">{{ album.recommendment }}</span> -->
+              <!-- <br> -->
+              <img class="album-cover" alt="album-cover" ng-src="{{album.albumCover}}">
               <br>
               <button ng-click="deleteAlbum($index, album)">&times;</button>
               <button ng-click="editAlbum(album)" ng-hide="album.isBeingEdited">Edit Album Details</button>
@@ -55,6 +57,19 @@
             </li>
           </ul>
         </div>
+        <div class="row text-center">
+          <div class="col-md-12">
+          <select ng-model="singleSelect" ng-options="album.title for album in albums" style="color:black">
+
+     </select>
+       </div>
+      </div>
+      <div class="col-md-2 col-md-offset-5" ng-repeat="album in albums track by $index">
+        <p ng-show='singleSelect.title === album.title' class="well text-center" style="color:black">
+         {{ album.title }} <br>
+         {{ album.artist }} <br>
+         {{ album.releaseDate }} <br>
+         <img class="album-cover" ng-src="{{album.albumCover}}" title="{{album.title}}" alt="{{album.albumCover}}"/>
       </div>
     </div>
   </div>

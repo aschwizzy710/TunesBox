@@ -27,7 +27,12 @@ body {
   background-image: "https://www.emojibase.com/resources/img/emojis/apple/x1f4af.png.pagespeed.ic.XGag47MW_q.png";
 }
 
-#album-cover {
+.album-cover {
   width: 150px;
   height: 150px;
+}
+
+.well {
+  background-color: #366801;
+  padding: -100px;
 }
